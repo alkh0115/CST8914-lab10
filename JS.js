@@ -62,7 +62,12 @@ class MenuButtonActions {
   setFocusToMenuitem(newMenuitem) {
     this.menuitemNodes.forEach(function (item) {
 // TOUFIC'S COMMENT: Placeholder for the roving tabindex logic  ;)
+      
+      item.setAttribute('tabindex', '-1');             // To make all other items unfocusable
+      
     });
+    newMenuitem.setAttribute('tabindex', '0');       // To make the new focused item focusable
+    newMenuitem.focus();                            // To move focus to the new item
   }
 
   setFocusToFirstMenuitem() {
